@@ -1,6 +1,28 @@
-#include <iostream>
+#include "Misc.h"
+#include "Warior.h"
+#include "Wizard.h"
+#include "Rogue.h"
+
+
+
 int main(int argc, char const *argv[])
 {
-    std::cout<< "Hello World!" << std::endl;
+
+        IntroText();
+        IntroScene();
+        Player* Player=setupPlayer(); 
+
+
+
+
+
+
+
+
+
+
+
+
+    
     return 0;
 }
