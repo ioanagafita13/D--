@@ -5,3 +5,5 @@
 void IntroText();
 bool IntroScene();
 Player* setupPlayer();
+void CrossRoads();
+bool chestOpen();
