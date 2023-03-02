@@ -21,7 +21,7 @@ bool IntroScene()
     else if (start_game=='n')
     {
         start=false;
-        std::cout<<"Bye Bye!\n"; //nu imi afiseaza?? trece direct la clear screen! de rezolvat!
+        std::cout<<"Bye Bye!\n"; 
     }
     
 
@@ -89,8 +89,72 @@ Player* setupPlayer()
         Player* player = new Rogue(player_name);
         return player;
     }
-   
 }
+
+std::string roadChosen;
+
+void CrossRoads()
+{
+    int chooseRoad;
+    
+    std::cout<<"You're walking on a road and arrive at a crossroads. Where do you want to go? \n";
+    std::cout<<"1.To the village"<<std::endl;
+    std::cout<<"2.To the forest"<<std::endl;
+    std::cout<<"3.To the caves"<<std::endl;
+    std::cin>>chooseRoad;
+    switch (chooseRoad)
+    {
+        case 1:
+        roadChosen="Village";
+        break;
+        case 2:
+        roadChosen="Forest";
+        break;
+        case 3:
+        roadChosen="Cave";
+        default:
+        std::cout<<"You must type 1, 2, or 3 \n";
+        break;
+    }
+    std::cout<<"You chose the "<<roadChosen<<std::endl;
+    std::cout<<"press any key to continue\n";
+    system("cls");
+    
+}
+
+bool chestOpen()
+{
+
+    bool openChest=false;
+    char doYouOpen;
+    std::cout<<"As you walk on the path to the "<<roadChosen<<" you come across a chest \n";
+    std::cout<<"on the side of the road. \n";
+    std::cout<<"Do you want to open it? (y/n): ";
+    std::cin>>doYouOpen;
+       if(doYouOpen == 'y')
+        {
+        openChest=true;
+        std::cout<<"You opened the chest!!!\n";
+        std::cout<<"But what do you find inside it? \n";
+        }
+        else if (doYouOpen == 'n')
+        {
+        openChest=false;
+        std::cout<<"You continue on your journey. \n";
+        }
+        std::cout<<"press any key to continue\n";
+        //std::cin.get();
+        //std::cout << "\033[2J\033[1;1H";//-clear screen ///de rezolvat pb cu clear screen
+
+
+return openChest;
+    }
+   
+
+
+
+
+
 
 
 
