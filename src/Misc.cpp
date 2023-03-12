@@ -149,6 +149,31 @@ bool chestOpen()
 
 return openChest;
     }
+
+
+
+Enemy* generateRandomEnemy()
+{
+    EnemyType randomEnemyType = (EnemyType) (rand() % 3);
+    if(randomEnemyType == EnemyType::Orc)
+    {
+        Enemy* enemy = new Orc();
+        std::cout << "Orc was generated \n";
+        return enemy;
+    }
+    else if (randomEnemyType == EnemyType::Goblin)
+    {
+        Enemy* enemy = new Goblin();
+        std::cout << "Goblin was generated \n";
+        return enemy;
+    }
+    else 
+    {
+        Enemy* enemy = new Troll();
+        std::cout << "Troll was generated \n";
+        return enemy;
+    }
+}
    
 
 
