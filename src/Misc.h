@@ -12,3 +12,4 @@ Player* setupPlayer();
 void CrossRoads();
 bool chestOpen();
 Enemy* generateRandomEnemy();
+bool battleScene(Player* player, Enemy* enemy);

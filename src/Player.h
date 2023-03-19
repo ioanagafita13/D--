@@ -5,32 +5,59 @@
 #include<string>
 #include<vector>
 #include<iostream>
-//#include "Item.h"
+#include "Item.h"
 
+enum class PlayerType
+{
+    Wizard,
+    Warior,
+    Rogue
+};
 class Player
 {
 public:
+    PlayerType PlayerType;
     Player(std::string name, int health, int damage);
     Player();
     virtual ~Player();
-    virtual void attack(int attackPower); 
-    //void checkInventory(std::vector<Item*> inventory);
+    int attack(); 
+    void CheckInventory();
+    void CreateChestItem();
+    int getItemsAttackPower();
 
-    
-protected:
-
-        void setName(std::string name);
+    void setName(std::string name);
         std::string getName()
         {
             return player_name;
         }
+       void setHealth(int health)
+        {
+        this->player_health = health;
+        }
+        int getHealth()
+        {
+            return this->player_health;
+        }
+        void setDamage(int damage)
+        {
+        this->damage = damage;
+        }
+        int getDamage()
+        {
+        return this->damage;
+        }
+
+    
+protected:
+
+        
 
 
 private:
     int player_health;
     int damage;
     std::string player_name;
-   // std::vector<Item*> inventory; 
+    std::vector<Item*> inventory;
 };
 
 #endif

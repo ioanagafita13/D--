@@ -125,29 +125,37 @@ void CrossRoads()
 bool chestOpen()
 {
 
-    bool openChest=false;
-    char doYouOpen;
-    std::cout<<"As you walk on the path to the "<<roadChosen<<" you come across a chest \n";
-    std::cout<<"on the side of the road. \n";
-    std::cout<<"Do you want to open it? (y/n): ";
-    std::cin>>doYouOpen;
-       if(doYouOpen == 'y')
+    int chestAnswerValue;
+    bool validAnswer = false, openChest;
+    std::cout << "You are heading to the " << roadChosen << ". \n";
+    while(validAnswer==false)
+    { 
+        std::cout << "On the road, you find a chest. Do you open it?" << std::endl
+                    << "1. Yes" << std::endl 
+                    << "2. No" << std::endl;
+        std::cin>>chestAnswerValue;
+        switch (chestAnswerValue)
         {
-        openChest=true;
-        std::cout<<"You opened the chest!!!\n";
-        std::cout<<"But what do you find inside it? \n";
+            case 1: 
+            {
+                validAnswer=true;
+                openChest = true;
+                break;
+            }
+            case 2: 
+            {
+                validAnswer=true;
+                openChest = false;
+                break;
+            }
         }
-        else if (doYouOpen == 'n')
+        system("cls");
+        if(validAnswer==false)
         {
-        openChest=false;
-        std::cout<<"You continue on your journey. \n";
+            std::cout<<"Wrong input. Please pick a valid option." << std::endl;
         }
-        std::cout<<"press any key to continue\n";
-        //std::cin.get();
-        //std::cout << "\033[2J\033[1;1H";//-clear screen ///de rezolvat pb cu clear screen
-
-
-return openChest;
+    }
+    return openChest;
     }
 
 
@@ -173,6 +181,24 @@ Enemy* generateRandomEnemy()
         std::cout << "Troll was generated \n";
         return enemy;
     }
+}
+
+bool battleScene(Player* player, Enemy* enemy)
+{
+        do 
+        {
+            enemy->setHP( enemy->getHP() - player->attack() );
+            if (enemy->getHP() <= 0)
+            {
+                return true;
+            }
+            player->setHealth( player->getHealth() - (enemy->getDamage()) );
+            if(player->getHealth() <= 0)
+            {
+                return false;
+            }
+        }
+        while ( (player->getHealth() > 0) && (enemy->getHP() > 0) );
 }
    
 
