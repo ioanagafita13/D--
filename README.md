@@ -1,4 +1,4 @@
-# D--
+# D++
 Aplicatie joc de tip console RPG.
 Un jucator poate sa isi seteze numele si clasa din care face parte
 	Wizard, Warrior, Rogue
